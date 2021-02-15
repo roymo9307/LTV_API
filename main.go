@@ -11,17 +11,18 @@ func main() {
 	mux := goji.NewMux()
 	mux.HandleFunc(pat.Get("/"), homePage)
 
-	mux.HandleFunc(pat.Get("/songs"), getallsongs)
+	mux.HandleFunc(pat.Get("/songs"), getAllsongs)
+	mux.HandleFunc(pat.Get("/songs/id/:id"), getbysongID)
 
-	/*mux.HandleFunc(pat.Get("/songs"), getallsongs)
+	mux.HandleFunc(pat.Get("/songs/artist/:artist"), getByArtist)
+	mux.HandleFunc(pat.Get("/songs/song/:song"), getBySong)
+	mux.HandleFunc(pat.Get("/songs/genre/:genre"), getByGenre)
 
-	mux.HandleFunc(pat.Get("/songs/artist/:artist"), getbyartist)
-	mux.HandleFunc(pat.Get("/songs/song/:song"), getbysong)
-	mux.HandleFunc(pat.Get("/songs/genre/:genre"), getbygenre)
+	mux.HandleFunc(pat.Get("/genre/genres"), getAllGenres)
+	mux.HandleFunc(pat.Get("/genre/id/:id"), getByGenereID)
+	mux.HandleFunc(pat.Get("/genre/summary"), getGenresSummary)
+	mux.HandleFunc(pat.Get("/songs/length/:min/:max"), getByLength)
 
-	mux.HandleFunc(pat.Get("/songs/genre"), getgenressummary)
-	mux.HandleFunc(pat.Get("/songs/length/:min/:max"), getbylength)
-	*/
-	http.ListenAndServe("localhost:8000", mux)
+	http.ListenAndServe("localhost:8080", mux)
 
 }

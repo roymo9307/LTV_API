@@ -13,37 +13,54 @@ func homePage(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Endpoint Hit: homePage")
 }
 
-func getallsongs(w http.ResponseWriter, r *http.Request) {
-	z := allsongs()
+func getAllsongs(w http.ResponseWriter, r *http.Request) {
+	z := allSongs()
 	w.Write(z)
 }
 
-func getbyartist(w http.ResponseWriter, r *http.Request) {
+func getByArtist(w http.ResponseWriter, r *http.Request) {
 	var artist = pat.Param(r, "artist")
-	response := byartist(artist)
+	response := byArtist(artist)
 	w.Write(response)
 }
 
-func getbysong(w http.ResponseWriter, r *http.Request) {
+func getbysongID(w http.ResponseWriter, r *http.Request) {
+	var songID = pat.Param(r, "id")
+	response := bySongID(songID)
+	w.Write(response)
+}
+
+func getBySong(w http.ResponseWriter, r *http.Request) {
 	var song = pat.Param(r, "song")
-	response := bysong(song)
+	response := bySong(song)
 	w.Write(response)
 }
 
-func getbygenre(w http.ResponseWriter, r *http.Request) {
+func getByGenre(w http.ResponseWriter, r *http.Request) {
 	var genre = pat.Param(r, "genre")
-	response := bygenre(genre)
+	response := byGenre(genre)
 	w.Write(response)
 }
 
-func getgenressummary(w http.ResponseWriter, r *http.Request) {
-	response := genressummary()
+func getAllGenres(w http.ResponseWriter, r *http.Request) {
+	response := allGenres()
 	w.Write(response)
 }
 
-func getbylength(w http.ResponseWriter, r *http.Request) {
+func getByGenereID(w http.ResponseWriter, r *http.Request) {
+	var genreID = pat.Param(r, "id")
+	response := byGenreID(genreID)
+	w.Write(response)
+}
+
+func getGenresSummary(w http.ResponseWriter, r *http.Request) {
+	response := genresSummary()
+	w.Write(response)
+}
+
+func getByLength(w http.ResponseWriter, r *http.Request) {
 	min := pat.Param(r, "min")
 	max := pat.Param(r, "max")
-	response := bylength(min, max)
+	response := byLength(min, max)
 	w.Write(response)
 }
