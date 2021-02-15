@@ -1,5 +1,10 @@
 package main
 
+/*
+This page is in charge of fill a structures and communication
+between the Model page and the Database
+*/
+
 import (
 	"database/sql"
 	"encoding/json"

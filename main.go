@@ -1,5 +1,10 @@
 package main
 
+/*
+This page is in charge communication
+between the app and web (view) using JSON
+*/
+
 import (
 	"net/http"
 

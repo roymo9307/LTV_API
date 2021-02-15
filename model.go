@@ -1,5 +1,9 @@
 package main
 
+/*
+This page is for define a structures and array structures
+*/
+
 type Songs struct {
 	Id     int
 	Artist string

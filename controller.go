@@ -1,5 +1,10 @@
 package main
 
+/*
+This page is in charge of controlling communication
+and information between the main page (view) and the database
+*/
+
 import (
 	"net/http"
 
@@ -9,8 +14,7 @@ import (
 )
 
 func homePage(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Welcome to the HomePage!")
-	fmt.Println("Endpoint Hit: homePage")
+	fmt.Fprintf(w, "Welcome LTV")
 }
 
 func getAllsongs(w http.ResponseWriter, r *http.Request) {
